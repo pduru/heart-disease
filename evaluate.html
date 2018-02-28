@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Fuzzy Inference System | Heart Disease</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Start your project here-->
+  <!--Main Navigation-->
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark teal accent-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">Fuzzy Logic for Heart Diseases</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="evaluate.html">Evaluate <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!--Main Navigation-->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mt-5">
+          <div class="card-header">
+            Enter Form Data Here
+          </div>
+          <div class="card-body">
+            <form id="form-fuzzy">
+              <div class="form-group">
+                <label for="chestPain">1. Chest Pain</label>
+                <input type="number" min='1' max='4' class="form-control" id="chestPainInput" aria-describedby="chestPainHelp" placeholder="Enter value for chest Pain"
+                  name='chestPain'>
+                <small id="chestPainHelp" class="form-text text-muted">1. Typical Angina, 2. Atypical Angina, 3. Non typical Angina, 4. Asymtotic Angina </small>
+              </div>
+              <div class="form-group">
+                <label for="trestbps">2. Resting Blood Pressure</label>
+                <input type="number" min='110' max='500' class="form-control" id="trestbpsHelp" aria-describedby="trestbps" placeholder="Enter value for Resting Blood Pressur"
+                  name='restbps'>
+                <small id="trestbpsHelp" class="form-text text-muted">Min (110-145), Max(145 and above) </small>
+              </div>
+              <div class="form-group">
+                <label for="chol">3. Cholesterol</label>
+                <input type="number" min='168' max='500' class="form-control" id="chol" aria-describedby="chol" placeholder="Enter value for Cholesterol"
+                  name='cholesterol'>
+                <small id="chol" class="form-text text-muted">Min (168-240), Max(240 and above) </small>
+              </div>
+              <div class="form-group">
+                <label for="yearsSmoke">4. Years of Smoking</label>
+                <input type="number" min='0' max='150' class="form-control" id="yearSmoke" aria-describedby="yearSmoke" placeholder="Enter value for Years of Smoking"
+                  name='yearsSmoking'>
+                <small id="yearSmoke" class="form-text text-muted">Min (0-30), Max(30 and above) </small>
+              </div>
+              <div class="form-group">
+                <label for="fbs">5. Fasting Blood Sugar</label>
+                <input type="number" min='0' max='500' class="form-control" id="fbs" aria-describedby="fbs" placeholder="Enter value for Fasting Blood Sugar"
+                  name='fastingBloodSugar'>
+                <small id="fbs" class="form-text text-muted">Min (0-120), Max(120 and above) </small>
+              </div>
+              <div class="form-group">
+                <label for="thalRest">6. Maximum Heart Rate</label>
+                <input type="number" min='50' max='500' class="form-control" id="heartRate" aria-describedby="thalrest" placeholder="Enter max heart rate"
+                  name='thalRest'>
+                <small id="fbs" class="form-text text-muted">Min (50-70), Max(70 and above) </small>
+              </div>
+              <div class="form-group">
+                <label for="thalRest">7. Resting Blood Rate</label>
+                <input type="number" min='90' max='500' class="form-control" id="heartRate" aria-describedby="thalrest" placeholder="Enter Resting blood rate"
+                  name='thalRest'>
+                <small id="fbs" class="form-text text-muted">Min (90-140), Max(140 and above) </small>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="list-group mt-5">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Result Displayed Here</h5>
+            </div>
+           <p id= "output"></p>
+          </a>
+          
+        </div>
+
+      </div>
+      <div class="col-md-4">
+
+      </div>
+
+    </div>
+  </div>
+
+  <!--End Main Navigation-->
+  <!-- /end your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/fuzzy.js"></script>
+</body>
+
+</html>
